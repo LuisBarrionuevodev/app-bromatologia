@@ -9,5 +9,6 @@ class Contribuyente:
         self.cuit=cuit
         self.sexo=sexo
 
-        def create(nombre,apellido,cuit, sexo):
+    def create(nombre,apellido,cuit, sexo):
+        conn_
             
