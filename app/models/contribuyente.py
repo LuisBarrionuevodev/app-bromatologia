@@ -10,5 +10,5 @@ class Contribuyente:
         self.sexo=sexo
 
     def create(nombre,apellido,cuit, sexo):
-        conn_
+        conn= obtener_conexion
             
