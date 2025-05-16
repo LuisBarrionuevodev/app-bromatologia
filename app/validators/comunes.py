@@ -20,4 +20,8 @@ def validar_fecha(fecha,formato="%Y-%m-%d"):
    try: 
     return datetime.strptime(fecha,formato)
    except:
-       raise ValueError(f"La fecha {fecha} no es valida o no tiene el formato {formato}") 
+       raise ValueError(f"La fecha {fecha} no es valida o no tiene el formato {formato}")
+
+def validar_opcion_en_lista(valor, opciones_validas, campo):
+    if valor not in opciones_validas:
+        raise ValueError(f"El campo '{campo}' debe ser uno de los siguientes: {', '.join(opciones_validas)}")
