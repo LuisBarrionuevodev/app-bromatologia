@@ -1,13 +1,5 @@
-from validators.comunes import validar_no_vacio, validar_longitud, validar_tipo, validar_fecha,validar_cuit,validar_opcion_en_lista
-from app.models.contribuyente import Contribuyente
+from app.validators.comunes import validar_no_vacio, validar_longitud, validar_tipo, validar_fecha,validar_cuit,validar_opcion_en_lista
 
-def validar_cuit_unico(cuit):
-    if Contribuyente.exists(cuit):
-        raise ValueError(f"El cuit {cuit} ya está registrado.")
-
-def validar_cuit_existente(cuit):
-    if not Contribuyente.exists(cuit):
-        raise ValueError(f"El cuit {cuit} no existe en la base de datos.")    
 
 def validar_contribuyente(cuit,nombre,apellido,sexo):
     #Cuit
