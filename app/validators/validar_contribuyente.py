@@ -18,7 +18,7 @@ def validar_contribuyente(cuit,nombre,apellido,sexo):
     validar_tipo(apellido,"Apellido",str)
 
     #sexo
-    opciones_validas = ["hombre", "mujer", "no binario"]
+    opciones_validas = ["MASCULINO", "FEMENINO", "NO BINARIO"]
     validar_opcion_en_lista(sexo,opciones_validas,"Sexo")
 
 

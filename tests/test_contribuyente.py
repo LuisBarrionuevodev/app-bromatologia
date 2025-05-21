@@ -1,62 +1,45 @@
 import sys
 import os
 
-# Agregar la carpeta raíz del proyecto al sys.path
+# Aseguramos que la raíz del proyecto esté en sys.path
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-# ⚠️ Cambiar "modelo" por el nombre real de tu clase
-from app.models.contribuyente import Contribuyente
-
+from app.services.contribuyente_logica import (
+    crear_contribuyente,
+    obtener_contribuyente,
+    actualizar_contribuyente,
+    eliminar_contribuyente
+)
 
 def test_create():
-    try:
-        Contribuyente.create(
-            nombre="Luis",
-            apellido="Barrionuevo",
-            cuit="20123456789",
-            sexo="hombre"
-        )
-        print("✅ Contribuyente creado correctamente.")
-    except Exception as e:
-        print(f"❌ Error en create(): {e}")
-
+    crear_contribuyente(
+        nombre="Luis",
+        apellido="Barrionuevo",
+        cuit="20123456789",
+        sexo="MASCULINO"
+    )
 
 def test_get():
-    try:
-        result = Contribuyente.get_by_cuit("20123456789")
-        if result:
-            print("✅ get_by_cuit() correcto:", result)
-        else:
-            print("❌ CUIT no encontrado.")
-    except Exception as e:
-        print(f"❌ Error en get(): {e}")
-
+    obtener_contribuyente("20123456789")
 
 def test_update():
-    try:
-        Contribuyente.update(
-            cuit="20123456789",
-            nombre="Luisito",
-            apellido="Barrionuevo",
-            sexo="no binario"
-        )
-        print("✅ Contribuyente actualizado correctamente.")
-    except Exception as e:
-        print(f"❌ Error en update(): {e}")
-
+    actualizar_contribuyente(
+        nombre="Luisito",
+        apellido="Barrionuevo",
+        cuit="20123456789",
+        sexo="NO BINARIO"
+    )
 
 def test_delete():
-    try:
-        Contribuyente.delete("20123456789")
-        print("✅ Contribuyente eliminado correctamente.")
-    except Exception as e:
-        print(f"❌ Error en delete(): {e}")
-
+    eliminar_contribuyente("20123456789")
 
 if __name__ == "__main__":
     test_create()
     test_get()
     test_update()
+    test_get()
     test_delete()
+    test_get()  # Para verificar que fue eliminado
+
