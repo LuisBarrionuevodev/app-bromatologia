@@ -13,13 +13,13 @@ from app.services.contribuyente_logica import (
     eliminar_contribuyente
 )
 
-def test_create():
-    crear_contribuyente(
-        nombre="Luis",
-        apellido="Barrionuevo",
-        cuit="20123456789",
-        sexo="MASCULINO"
-    )
+# def test_create():
+#     crear_contribuyente(
+#         nombre="Luis",
+#         apellido="Barrionuevo",
+#         cuit="20123456789",
+#         sexo="MASCULINO"
+#     )
 
 def test_get():
     obtener_contribuyente("20123456789")
@@ -29,14 +29,14 @@ def test_update():
         nombre="Luisito",
         apellido="Barrionuevo",
         cuit="20123456789",
-        sexo="NO BINARIO"
+        sexo="FEMENINO"
     )
 
 def test_delete():
     eliminar_contribuyente("20123456789")
 
 if __name__ == "__main__":
-    test_create()
+    # test_create()
     test_get()
     test_update()
     test_get()

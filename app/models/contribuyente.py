@@ -27,17 +27,23 @@ class Contribuyente:
         conn.close()
         return resultado
     
-    def get_by_id(cuit):
+    def get_by_cuit(cuit):
             conn=obtener_conexion()
-            cursor = conn.cursor("SELECT * FROM contribuyente WHERE cuit =%s",(cuit,))
+            cursor = conn.cursor(dictionary=True)
+            cursor.execute("SELECT * FROM contribuyente WHERE cuit =%s",(cuit,))
             resultado= cursor.fetchone()
-            cursor.close
+            cursor.close()
             conn.close()
             return resultado   
         
     def exists(cuit):
         conn= obtener_conexion()
-        cursor=conn.cursor("SELECT COUNT(*) FROM contribuyente WHERE cuit =%s",(cuit,))
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM contribuyente WHERE cuit = %s", (cuit,))
+        resultado = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return resultado > 0
     
     def update (cuit,nombre,apellido,sexo):
             conn= obtener_conexion()
@@ -51,9 +57,9 @@ class Contribuyente:
             conn =obtener_conexion()
             cursor =conn.cursor()
             cursor.execute("DELETE FROM contribuyente WHERE cuit =%s",(cuit,))  
-            resultado= cursor.fetchone()[0]
+            conn.commit()
             cursor.close()
             conn.close()
-            return resultado >0  
+           
 
             

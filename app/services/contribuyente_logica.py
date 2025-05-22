@@ -1,6 +1,5 @@
 from app.models.contribuyente import Contribuyente
 from app.validators.validar_contribuyente import validar_contribuyente
-from app.services.contribuyente_logica import validar_cuit_existente, validar_cuit_unico
 from mysql.connector import errors
 from app.validators.comunes import validar_cuit , validar_tipo , validar_no_vacio
 def validar_cuit_unico(cuit):
@@ -32,7 +31,7 @@ def obtener_contribuyente(cuit):
         validar_tipo(cuit, "CUIT", str)
         validar_cuit(cuit)  
         validar_cuit_existente(cuit)
-        resultado= Contribuyente.get_by_id(cuit)
+        resultado= Contribuyente.get_by_cuit(cuit)
         print(f"Contribuyente encontrado: {resultado}")
         return resultado
 
