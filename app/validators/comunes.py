@@ -7,7 +7,7 @@ def validar_no_vacio(valor,campo):
 
 def validar_tipo (valor,campo,dato_correcto):
     if not isinstance(valor,dato_correcto):
-        raise TypeError(f"El campo {campo} de ser de tipo {dato_correcto}")
+        raise TypeError(f"El campo {campo} de ser de tipo {dato_correcto.__name__}")
     
 def validar_longitud(valor,max_length,campo):
     if len(str(valor))>max_length:
