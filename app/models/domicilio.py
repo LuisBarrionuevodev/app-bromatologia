@@ -2,7 +2,7 @@ from app.database.config import obtener_conexion
 
 
 
-class Contribuyente:
+class Domicilio:
     def _init_(self,calle,numero,detalle=None):
         self.calle=calle
         self.numero=numero
@@ -12,7 +12,7 @@ class Contribuyente:
     def create(calle,numero,detalle=None):
         conn= obtener_conexion()
         cursor= conn.cursor()
-        query="INSERT INTO domicilio(calle,numero,detalle) VALUES (%s,%s,%s,%s)"
+        query="INSERT INTO domicilio(calle,numero,detalle) VALUES (%s,%s,%s)"
         cursor.execute(query,(calle,numero,detalle))    
         conn.commit()
         cursor.close()
