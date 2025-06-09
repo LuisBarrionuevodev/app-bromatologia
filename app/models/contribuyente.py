@@ -1,7 +1,5 @@
 from app.database.config import obtener_conexion
 
-
-
 class Contribuyente:
     def _init_(self,nombre,apellido,cuit,sexo):
         self.nombre= nombre
