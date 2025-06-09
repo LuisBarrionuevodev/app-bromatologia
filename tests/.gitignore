@@ -1,0 +1,20 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Entornos virtuales
+
+
+# Node
+node_modules/
+
+# Otros
+.DS_Store
+Thumbs.db
