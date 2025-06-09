@@ -58,6 +58,6 @@ class Contribuyente:
             conn.commit()
             cursor.close()
             conn.close()
-           
+           ##mensaje
 
             
